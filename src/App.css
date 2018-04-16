@@ -1,0 +1,49 @@
+/** {*/
+  /*-webkit-box-sizing: border-box;*/
+  /*-moz-box-sizing: border-box;*/
+
+  /*box-sizing: border-box;*/
+/*}*/
+
+html, body  {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.list-events-title {
+  background-color: darkviolet;
+  color: white;
+}
+
+.list-events-content {
+  display: flex;
+  align-items: flex-start;
+  flex-flow: row wrap;
+}
+
+
+.event {
+  text-align: left;
+}
+
+.card-container {
+  width: 40%;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 15px;
+
+}
+
+.card-header {
+  background-color: cyan;
+}
+
+span {
+  display: block;
+}
+
+ul {
+  list-style-type: none;
+}
