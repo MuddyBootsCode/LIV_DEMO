@@ -19,7 +19,6 @@ export default class StoreFront extends Component {
                     <h1>LIV Events</h1>
                 </div>
                 <div className="list-events-content">
-
                     {
                         events.map((event) =>{
                             return (
@@ -27,7 +26,6 @@ export default class StoreFront extends Component {
                                     )
                         })
                     }
-
                 </div>
             </div>
 

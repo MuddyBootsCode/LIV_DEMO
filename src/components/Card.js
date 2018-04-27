@@ -9,11 +9,16 @@ export default class Event extends Component {
 
     render() {
 
-
         const { event } = this.props
         const CardCover = event.picture === "None" ? PlaceHolder : event.picture
         const CardTitle = event.name.slice(0, 30)
         const CardSubtitle = `${event.venue} - ${event.venue_city}`
+        const emptyEvent = {
+            backgroundColor: '#FF0000'
+        }
+        const foundEvent = {
+            backgroundColor: '#00FFFF'
+        }
 
         return (
             <div className="card-container">
@@ -25,6 +30,7 @@ export default class Event extends Component {
                         actAsExpander = {true}
                         showExpandableButton = {true}
                         className="card-header"
+                        style={CardTitle === "_________" ? emptyEvent : foundEvent}
                     />
                     <CardActions>
                         <FlatButton label='Action1'/>
@@ -42,7 +48,10 @@ export default class Event extends Component {
                             Event Url
                         </a>
                         <span>
-                            {event.description}
+                            Description: {event.description}
+                        </span>
+                        <span>
+                            Time: {event.time}
                         </span>
 
                     </CardText>
