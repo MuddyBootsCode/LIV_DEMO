@@ -6,7 +6,9 @@ import Card from './Card'
 export default class StoreFront extends Component {
     static propTypes = {
         events: PropTypes.array.isRequired,
+        removeEvent: PropTypes.func.isRequired
     }
+
 
     render () {
 

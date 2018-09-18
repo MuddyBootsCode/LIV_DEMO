@@ -22,7 +22,6 @@ class App extends Component {
         this.setState(state => ({
         events: state.events.filter(state => state !== event)
     }));
-        console.log(this.state.events)
     };
 
 

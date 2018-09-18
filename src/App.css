@@ -50,5 +50,6 @@ ul {
 
 .card-img {
 
-
+  height: auto;
+  width: auto;
 }
