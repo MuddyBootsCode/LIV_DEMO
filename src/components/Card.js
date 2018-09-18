@@ -9,7 +9,7 @@ export default class Event extends Component {
 
     render() {
 
-        const { event } = this.props
+        const { event, removeEvent, classes } = this.props
         const CardCover = event.picture === "None" ? PlaceHolder : event.picture
         const CardTitle = event.name.slice(0, 30)
         const CardSubtitle = `${event.venue} - ${event.venue_city}`
@@ -33,7 +33,7 @@ export default class Event extends Component {
                         style={CardTitle === "_________" ? emptyEvent : foundEvent}
                     />
                     <CardActions>
-                        <FlatButton label='Action1'/>
+                        <FlatButton label='Remove Event' onClick={() => removeEvent(event) }/>
                         <FlatButton label='Action2'/>
                     </CardActions>
                     <CardText expandable={true}>
@@ -41,10 +41,10 @@ export default class Event extends Component {
                             {event.name}
                         </span>
                         <CardMedia>
-                            <img src={CardCover} style={{ height:200, width: 250}} alt="event"/>
+                            <img className="card-img" src={CardCover}  alt="event"/>
                         </CardMedia>
 
-                        <a href={event.event_url}>
+                        <a href={event.event_url} target="_blank">
                             Event Url
                         </a>
                         <span>

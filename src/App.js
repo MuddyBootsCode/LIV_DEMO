@@ -14,10 +14,16 @@ class App extends Component {
 
     componentDidMount() {
         eventsAPI.getAll().then((events) => {
-            console.log(events)
             this.setState({ events })
         })
     }
+
+    removeEvent = (event) => {
+        this.setState(state => ({
+        events: state.events.filter(state => state !== event)
+    }));
+        console.log(this.state.events)
+    };
 
 
   render() {
@@ -25,7 +31,7 @@ class App extends Component {
       <div className="App">
 
         <Route exact path="/" render = {() => (
-            <EventsPage events={this.state.events}/>
+            <EventsPage events={this.state.events} removeEvent = {this.removeEvent}/>
         )}/>
 
       </div>

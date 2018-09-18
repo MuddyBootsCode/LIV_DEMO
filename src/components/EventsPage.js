@@ -10,7 +10,7 @@ export default class StoreFront extends Component {
 
     render () {
 
-        const { events } = this.props
+        const { events, removeEvent } = this.props
 
         return (
 
@@ -22,7 +22,7 @@ export default class StoreFront extends Component {
                     {
                         events.map((event) =>{
                             return (
-                                <Card key={event.event_url} event={event}/>
+                                <Card key={event.event_url} event={event} removeEvent={removeEvent}/>
                                     )
                         })
                     }

@@ -1,4 +1,4 @@
-export const api = 'http://localhost:8080/api/test'
+export const api = 'http://localhost:8000/api/test'
 
 export const headers = {
     'Accept' : 'application/json',
