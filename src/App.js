@@ -13,9 +13,11 @@ class App extends Component {
 
 
     componentDidMount() {
-        eventsAPI.getAll().then((events) => {
+        eventsAPI.getAll()
+            .then((events) => {
             this.setState({ events })
-        })
+            })
+            .catch(err => console.log(err))
     }
 
     removeEvent = (event) => {
