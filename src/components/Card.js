@@ -7,17 +7,29 @@ import PlaceHolder from './eventsPlaceholder.png'
 
 export default class Event extends Component {
 
+
     render() {
 
-        const { event, removeEvent, classes } = this.props
-        const CardCover = event.picture === "None" ? PlaceHolder : event.picture
-        const CardTitle = event.name.slice(0, 30)
-        const CardSubtitle = `${event.venue} - ${event.venue_city}`
+        const { event, removeEvent, selectEvent } = this.props;
+        const CardCover = event.picture === "None" ? PlaceHolder : event.picture;
+        const CardTitle = event.name.slice(0, 30);
+        const CardSubtitle = `${event.venue} - ${event.venue_city}`;
         const emptyEvent = {
             backgroundColor: '#FF0000'
         }
         const foundEvent = {
             backgroundColor: '#00FFFF'
+        }
+        const chosenEvent = {
+            backgroundColor: '#00ff00'
+        }
+
+        let cardStyle = foundEvent;
+
+        if (event.title === "_________"){
+            cardStyle = emptyEvent
+        } else if (event.chosen === true){
+            cardStyle = chosenEvent
         }
 
         return (
@@ -30,11 +42,11 @@ export default class Event extends Component {
                         actAsExpander = {true}
                         showExpandableButton = {true}
                         className="card-header"
-                        style={CardTitle === "_________" ? emptyEvent : foundEvent}
+                        style={cardStyle}
                     />
                     <CardActions>
-                        <FlatButton label='Remove Event' onClick={() => removeEvent(event) }/>
-                        <FlatButton label='Action2'/>
+                        <FlatButton label='Remove Event' onClick={() => removeEvent(event)}/>
+                        <FlatButton label='Choose Event' onClick={() => selectEvent(event)}/>
                     </CardActions>
                     <CardText expandable={true}>
                         <span>

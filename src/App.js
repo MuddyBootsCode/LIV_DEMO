@@ -7,10 +7,9 @@ import EventsPage from './components/EventsPage'
 
 class App extends Component {
 
-  state = {
+    state = {
     events: []
-  }
-
+    }
 
     componentDidMount() {
         eventsAPI.getAll()
@@ -26,13 +25,25 @@ class App extends Component {
     }));
     };
 
+    selectEvent = (event) => {
+        const { events } = this.state
+        const index = this.state.events.findIndex(item => item.name === event.name );
+        this.setState(state => ({
+            state, events: [
+                ...events.slice(0, index),
+                {...events[index], chosen: true},
+                ...events.slice(index + 1)
+            ]
+        }))
+    };
 
-  render() {
+
+    render() {
     return (
       <div className="App">
 
         <Route exact path="/" render = {() => (
-            <EventsPage events={this.state.events} removeEvent = {this.removeEvent}/>
+            <EventsPage events={this.state.events} removeEvent = {this.removeEvent} selectEvent = {this.selectEvent} />
         )}/>
 
       </div>
