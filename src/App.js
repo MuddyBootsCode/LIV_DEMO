@@ -26,15 +26,14 @@ class App extends Component {
     };
 
     selectEvent = (event) => {
-        const { events } = this.state
-        const index = this.state.events.findIndex(item => item.name === event.name );
-        this.setState(state => ({
-            state, events: [
-                ...events.slice(0, index),
-                {...events[index], chosen: true},
-                ...events.slice(index + 1)
-            ]
-        }))
+        const index = this.state.events.findIndex(item => item.event_url === event.event_url );
+        this.setState(prevState => {
+            const updatedEvents = [...prevState.events]
+            const event = updatedEvents[index]
+            event.chosen = !event.chosen;
+            updatedEvents[index] = event
+            return {events: updatedEvents}
+        })
     };
 
 
